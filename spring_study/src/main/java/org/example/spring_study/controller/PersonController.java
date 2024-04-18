@@ -1,19 +1,19 @@
 package org.example.spring_study.controller;
 
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.spring_study.domain.Person;
 import org.example.spring_study.service.PersonService;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
+@Slf4j
 public class PersonController {
 
     private final PersonService personService;
-
-    public PersonController(PersonService personService) {
-        this.personService = personService;
-    }
 
 
     /*
