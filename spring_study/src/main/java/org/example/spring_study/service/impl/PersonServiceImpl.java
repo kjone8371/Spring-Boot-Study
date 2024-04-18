@@ -1,6 +1,6 @@
 package org.example.spring_study.service.impl;
 
-import lombok.RequiredArgsConstructor;
+
 import org.example.spring_study.domain.Person;
 import org.example.spring_study.service.PersonService;
 import org.springframework.stereotype.Service;
@@ -8,10 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Service
-@RequiredArgsConstructor
 public class PersonServiceImpl implements PersonService {
+
     private final List<Person> buffer = new ArrayList<>();
 
     private int idPool = 0;
@@ -47,10 +46,4 @@ public class PersonServiceImpl implements PersonService {
 
         return saved;
     }
-
-    @Override
-    public void deletePerson(int idx) {
-        buffer.removeIf(person -> person.getIdx() == idx);
-    }
-
 }
