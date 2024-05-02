@@ -14,6 +14,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import java.util.Date;
+
 @Service
 @RequiredArgsConstructor
 public class WritingServiceImpl implements WritingService {
@@ -34,6 +36,7 @@ public class WritingServiceImpl implements WritingService {
     @Override
     public Reply addReply(Reply reply) {
         ReplyEntity entity = Reply.toEntity(reply);
+        entity.setWriteTime(new Date());
 
         replyRepository.save(entity);
         reply.setReplyIdx(entity.getReplyIdx()); // 방법1
